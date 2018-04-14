@@ -25,8 +25,16 @@ private MortgageServiceLocal mortgageService = new MortgageService();
 
     @Test
     public void checkMortgageListSize(){
-        //TODO
         Mortgage mortgage = new Mortgage(TypeOfInstallment.DECREASE, 300000.00, 360, 0.06, 0.015, 0.005);
+        int installmentStatementSize = mortgageService.createInstallmentStatement(mortgage).size();
+        assertThat(installmentStatementSize, is(360));
+    }
+
+    @Test
+    public void checkFirstInstallmentFromList(){
+        Mortgage mortgage = new Mortgage(TypeOfInstallment.DECREASE, 300000.00, 360, 0.06, 0.015, 0.005);
+        Double secondInstallment = mortgageService.createInstallmentStatement(mortgage).get(300000.00);
+        assertThat(secondInstallment, is(1798.6515754582326));
     }
 
     @Test
