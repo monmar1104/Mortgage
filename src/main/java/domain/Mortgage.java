@@ -7,11 +7,11 @@ public class Mortgage {
     private double amount;
     private int repaymentPeriod;
     private double interest;
+    private double margin;
+    private double provision;
 
     public Mortgage() {
     }
-
-    private double margin;
 
     public Mortgage(TypeOfInstallment typeOfInstallment, double amount, int repaymentPeriod, double interest, double margin, double provision) {
         this.typeOfInstallment = typeOfInstallment;
@@ -21,9 +21,6 @@ public class Mortgage {
         this.margin = margin;
         this.provision = provision;
     }
-
-    private double provision;
-
 
 
     public TypeOfInstallment getTypeOfInstallment() {

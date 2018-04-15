@@ -19,18 +19,26 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+<c:set var="lp" value="0"/>
 
-<h2>Wprowadź dane</h2>
-<div>
-<form method="post" action="show-installments">
-    <label for="amount">Kwota kredytu</label><input type="text" id="amount" name="amount"><br/>
-    <label for="repaymentPeriod">Okres spłaty [mies.]</label> <input type="text" id="repaymentPeriod" name="repaymentPeriod"><br/>
-    <label for="interest">Stopa procentowa</label> <input type="text" id="interest" name="interest"><br/>
-    <label for="margin">Marża banku</label> <input type="text" id="margin" name="margin"><br/>
-    <label for="provision">Prowizja</label> <input type="text" id="provision" name="provision"><br/>
-    <input type="submit" name="show-installments" value="Show installment list">
-</form>
-</div>
+    <table>
+    <tr>
+        <th>L.p.</th>
+        <th>Kwota raty</th>
+        <th>Kwota pozostała</th>
+    </tr>
+    <c:forEach var="entry" items="${installmentmap}">
+        <c:set var="lp" value="${lp+1}"/>
+        <tr>
+            <td>${lp}</td>
+            <td><c:out value="${entry.key}"/></td>
+            <td><c:out value="${entry.value}"/></td>
+            <%--<td>${lp}</td>--%>
+            <%--<td>${entry.key}</td>--%>
+            <%--<td>${entry.value}</td>--%>
+        </tr>
+    </c:forEach>
+    </table>
 
 </body>
 </html>

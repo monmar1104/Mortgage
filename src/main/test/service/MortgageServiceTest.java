@@ -5,8 +5,8 @@ import domain.TypeOfInstallment;
 import org.junit.Test;
 
 import javax.ejb.EJB;
-import javax.inject.Inject;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
