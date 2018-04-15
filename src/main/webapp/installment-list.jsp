@@ -31,8 +31,8 @@
         <c:set var="lp" value="${lp+1}"/>
         <tr>
             <td>${lp}</td>
-            <td><c:out value="${entry.key}"/></td>
             <td><c:out value="${entry.value}"/></td>
+            <td><c:out value="${entry.key}"/></td>
             <%--<td>${lp}</td>--%>
             <%--<td>${entry.key}</td>--%>
             <%--<td>${entry.value}</td>--%>

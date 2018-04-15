@@ -10,7 +10,7 @@ import java.util.Map;
 public class MortgageService implements MortgageServiceLocal {
     @Override
     public double getInstallment(double amount, double interest, int repaymentPeriod) {
-        double q = (1+interest/12);
+        double q = 1+(interest/12);
         double pow = Math.pow(q, (double) repaymentPeriod);
         return amount * pow *(q-1)/(pow-1);
 
@@ -25,10 +25,11 @@ public class MortgageService implements MortgageServiceLocal {
     @Override
     public Map<Double, Double> createInstallmentStatement(Mortgage mortgage) {
         Map<Double,Double> installmentStatement = new LinkedHashMap<>();
+        double remainedAmount = mortgage.getAmount();
         for (int i = 0; i<mortgage.getRepaymentPeriod();i++){
-            installmentStatement.put(
-                    getRemainedAmount(mortgage.getAmount(),installmentStatement),
-                    getInstallment(mortgage.getAmount(),mortgage.getInterest(),mortgage.getRepaymentPeriod()-installmentStatement.size()));
+            double installment = getInstallment(remainedAmount, mortgage.getInterest(), mortgage.getRepaymentPeriod()-installmentStatement.size());
+            installmentStatement.put(remainedAmount, installment);
+            remainedAmount -= (installment-(remainedAmount*mortgage.getInterest()/12));
         }
 
         return installmentStatement;
