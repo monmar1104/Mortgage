@@ -10,4 +10,6 @@ public interface MortgageServiceLocal {
     double getInstallment(double amount, double interest, int repaymentPeriod);
     double getRemainedAmount(double startAmount, Map<Double, Double> installments);
     Map<Double, Double> createInstallmentStatement(Mortgage mortgage);
+    double getTotalMortgageCost(Mortgage mortgage);
+    double getAnnualPercentageRate(Mortgage mortgage);
 }

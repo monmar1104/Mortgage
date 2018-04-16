@@ -30,6 +30,7 @@ public class ShowInstallmentsServlet extends HttpServlet {
 
 
         Mortgage mortgage = new Mortgage(TypeOfInstallment.FIX, amount, repaymentPeriod, interest, margin, provision);
+        request.setAttribute("totalMortgageCost",mortgageService.getTotalMortgageCost(mortgage));
         Map<Double, Double> installmentStatement = mortgageService.createInstallmentStatement(mortgage);
         request.setAttribute("installmentmap", installmentStatement);
 

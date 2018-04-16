@@ -35,5 +35,15 @@ public class MortgageService implements MortgageServiceLocal {
         return installmentStatement;
     }
 
+    @Override
+    public double getTotalMortgageCost(Mortgage mortgage) {
+        return createInstallmentStatement(mortgage).values().stream().reduce(0.0,Double::sum) - mortgage.getAmount();
+    }
+
+    @Override
+    public double getAnnualPercentageRate(Mortgage mortgage) {
+        return 0;
+    }
+
 
 }

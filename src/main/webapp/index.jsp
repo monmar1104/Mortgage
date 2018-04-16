@@ -19,18 +19,19 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-
-<h2>Wprowadź dane</h2>
-<div>
-<form method="post" action="show-installments">
-    <label for="amount">Kwota kredytu</label><input type="text" id="amount" name="amount"><br/>
-    <label for="repaymentPeriod">Okres spłaty [mies.]</label> <input type="text" id="repaymentPeriod" name="repaymentPeriod"><br/>
-    <label for="interest">Stopa procentowa</label> <input type="text" id="interest" name="interest"><br/>
-    <label for="margin">Marża banku</label> <input type="text" id="margin" name="margin"><br/>
-    <label for="provision">Prowizja</label> <input type="text" id="provision" name="provision"><br/>
-    <input type="submit" name="show-installments" value="Show installment list">
-</form>
+<div class="container">
+    <h4>Aby obliczyć kredyt wprowadź dane</h4>
+    <div class="form-group">
+        <form method="post" action="show-installments">
+            <label for="amount">Kwota kredytu</label><input type="text" id="amount" name="amount"><br/>
+            <label for="repaymentPeriod">Okres spłaty [mies.]</label> <input type="text" id="repaymentPeriod"
+                                                                             name="repaymentPeriod"><br/>
+            <label for="interest">Stopa procentowa</label> <input type="text" id="interest" name="interest"><br/>
+            <label for="margin">Marża banku</label> <input type="text" id="margin" name="margin"><br/>
+            <label for="provision">Prowizja</label> <input type="text" id="provision" name="provision"><br/>
+            <input type="submit" name="show-installments" value="Show installment list">
+        </form>
+    </div>
 </div>
-
 </body>
 </html>

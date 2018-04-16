@@ -19,30 +19,27 @@
             integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
             crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="container">
+<p>Całkowity koszt kredytu: <fmt:formatNumber value="${totalMortgageCost}" type="currency"/> </p>
 <c:set var="lp" value="0"/>
 
-    <table>
+<table class="table table-striped">
+    <thead class="thead-dark">
     <tr>
         <th>L.p.</th>
         <th>Kwota raty</th>
         <th>Kwota pozostała</th>
     </tr>
+    </thead>
     <c:forEach var="entry" items="${installmentmap}">
         <c:set var="lp" value="${lp+1}"/>
         <tr>
-            <%--<td>${lp}</td>--%>
-            <%--<td><c:out value="${entry.value}"/></td>--%>
-            <%--<td><c:out value="${entry.key}"/></td>--%>
-
-                <td>${lp}</td>
-                <td><fmt:formatNumber value = "${entry.value}" type = "currency"/></td>
-                <td><fmt:formatNumber value = "${entry.key}" type = "currency"/></td>
-            <%--<td>${entry.key}</td>--%>
-            <%--<td>${entry.value}</td>--%>
+            <th scope="row">${lp}</th>
+            <td><fmt:formatNumber value="${entry.value}" type="currency"/></td>
+            <td><fmt:formatNumber value="${entry.key}" type="currency"/></td>
         </tr>
     </c:forEach>
-    </table>
+</table>
 
 </body>
 </html>
