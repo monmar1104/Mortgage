@@ -3,6 +3,7 @@ package service;
 import domain.Mortgage;
 
 import javax.ejb.Stateless;
+import java.math.BigDecimal;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -31,7 +32,6 @@ public class MortgageService implements MortgageServiceLocal {
             installmentStatement.put(remainedAmount, installment);
             remainedAmount -= (installment-(remainedAmount*mortgage.getInterest()/12));
         }
-
         return installmentStatement;
     }
 

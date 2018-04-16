@@ -2,6 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+
 <html>
 <head>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -30,10 +31,13 @@
     <c:forEach var="entry" items="${installmentmap}">
         <c:set var="lp" value="${lp+1}"/>
         <tr>
-            <td>${lp}</td>
-            <td><c:out value="${entry.value}"/></td>
-            <td><c:out value="${entry.key}"/></td>
             <%--<td>${lp}</td>--%>
+            <%--<td><c:out value="${entry.value}"/></td>--%>
+            <%--<td><c:out value="${entry.key}"/></td>--%>
+
+                <td>${lp}</td>
+                <td><fmt:formatNumber value = "${entry.value}" type = "currency"/></td>
+                <td><fmt:formatNumber value = "${entry.key}" type = "currency"/></td>
             <%--<td>${entry.key}</td>--%>
             <%--<td>${entry.value}</td>--%>
         </tr>
