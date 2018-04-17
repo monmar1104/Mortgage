@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
-<html>
+<br>
 <head>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -20,6 +20,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body class="container">
+<h3 class="text-center">Harmonogram spłaty kredytu hipotecznego</h3></body></br>
 <p>Całkowity koszt kredytu: <fmt:formatNumber value="${totalMortgageCost}" type="currency"/> </p>
 <c:set var="lp" value="0"/>
 
